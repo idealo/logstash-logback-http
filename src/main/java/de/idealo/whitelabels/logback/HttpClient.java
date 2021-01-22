@@ -1,45 +1,39 @@
 package de.idealo.whitelabels.logback;
 
-import static java.net.HttpURLConnection.HTTP_OK;
-import static net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils.isBlank;
-
 import ch.qos.logback.core.spi.ContextAwareBase;
 import ch.qos.logback.core.spi.LifeCycle;
 import ch.qos.logback.core.status.Status;
-import de.idealo.whitelabels.logback.library.ClientFactory;
-import de.idealo.whitelabels.logback.library.Logstash;
-import feign.Client;
+import de.idealo.whitelabels.logback.endpoints.Logstash;
 import feign.Feign;
+import feign.Logger.Level;
 import feign.Response;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.List;
+import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
 
 public class HttpClient extends ContextAwareBase implements LifeCycle {
 
     private String destination;
     private Logstash logstash;
     private volatile boolean isStarted = false;
-    private String client = "ApacheHttpClient";
-    private final ClientFactory clientFactory = new ClientFactory();
 
     @Override
     public synchronized void start() {
         if (isStarted) {
             return;
         }
-        if (isBlank(destination)) {
+        if (StringUtils.isBlank(destination)) {
             addError("No encoder was configured. Use <destination> URL");
         }
 
-        Client httpClient = clientFactory.getClient(client);
-
-        if (isAnyErrors()) {
+        if (hasAnyErrors()) {
             return;
         }
 
         logstash = Feign.builder()
-            .client(httpClient)
             .decoder((response, type) -> response)
+            .logLevel(Level.NONE)
             .target(Logstash.class, destination);
 
         isStarted = true;
@@ -65,8 +59,18 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
         try {
             verifyResponse(logstash.put(json));
         } catch (Exception ex) {
-            ioError(ex);
+            String msg = String.format(
+                "Can't execute PUT request. URL: '%s'; Body: %s",
+                destination,
+                json
+            );
+            addError(msg, ex);
         }
+    }
+
+    @Override
+    public String toString() {
+        return destination == null ? "HttpClient" : "HttpClient --> " + destination;
     }
 
     public void setDestination(String destination) {
@@ -77,32 +81,19 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
         return getStatusManager().getCopyOfStatusList();
     }
 
-    public void setClient(String client) {
-        this.client = client;
-    }
-
-    public void verifyResponse(Response response) {
-        if (response.status() != HTTP_OK && !"OK".equals(response.reason())) {
+    private void verifyResponse(Response response) throws IOException {
+        if (response.status() != HttpURLConnection.HTTP_OK) {
             String msg = String.format("ResponseCode: %s; Reason: %s; URL: %s",
                 response.status(),
                 response.reason(),
                 response.request().url()
             );
-            ioError(new IOException(msg));
+            throw new IOException(msg);
         }
     }
 
-    public void ioError(Exception ex) {
-        addError(String.format("Can't execute PUT request to: '%s'", destination), ex);
-    }
-
-    private boolean isAnyErrors() {
-        return getStatusManager().getCopyOfStatusList().stream().anyMatch(x -> x.getLevel() > 1);
-    }
-
-    @Override
-    public String toString() {
-        return destination == null ? client : client + " --> " + destination;
+    private boolean hasAnyErrors() {
+        return getStatusList().stream().anyMatch(x -> x.getLevel() > 1);
     }
 
 }

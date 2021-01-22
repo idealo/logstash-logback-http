@@ -13,7 +13,7 @@ pom.xml
 <dependency>
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.19</version>
 </dependency>
 ```
 
@@ -42,7 +42,11 @@ resources/logback-spring.xml
       <httpClient class="de.idealo.whitelabels.logback.HttpClient">
         <destination>https://JOUR.LOGSTASH.URL</destination>
       </httpClient>
-      <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+        <fieldNames>
+          <timestamp>timestamp</timestamp>
+        </fieldNames>
+      </encoder>
     </appender>
   </appender>
 
@@ -54,54 +58,6 @@ resources/logback-spring.xml
   </springProfile>
 
 </configuration>
-```
-We provide 3 implementations of HTTP clients:
-* ApacheHttpClient based on https://hc.apache.org/
-* GoogleHttpClient based on https://googleapis.github.io/google-http-java-client/
-* OkHttpClient based on https://square.github.io/okhttp/4.x/okhttp/okhttp3/
-
-
-### ApacheHttpClient
-
-```xml
-
-<appender class="de.idealo.whitelabels.logback.HttpAppender">
-  <httpClient class="de.idealo.whitelabels.logback.HttpClient">
-    <destination>https://JOUR.LOGSTASH.URL</destination>
-  </httpClient>
-  <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
-</appender>
-```
-or specify explicitly
-```xml
-
-<appender class="de.idealo.whitelabels.logback.HttpAppender">
-  <httpClient class="de.idealo.whitelabels.logback.HttpClient">
-    <destination>https://JOUR.LOGSTASH.URL</destination>
-    <client>ApacheHttpClient</client>
-  </httpClient>
-  <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
-</appender>
-```
-### GoogleHttpClient
-```xml
-<appender class="de.idealo.whitelabels.logback.HttpAppender">
-  <httpClient class="de.idealo.whitelabels.logback.HttpClient">
-    <destination>https://JOUR.LOGSTASH.URL</destination>
-    <client>GoogleHttpClient</client>
-  </httpClient>
-  <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
-</appender>
-```
-### OkHttpClient
-```xml
-<appender class="de.idealo.whitelabels.logback.HttpAppender">
-  <httpClient class="de.idealo.whitelabels.logback.HttpClient">
-    <destination>https://JOUR.LOGSTASH.URL</destination>
-    <client>OkHttpClient</client>
-  </httpClient>
-  <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
-</appender>
 ```
 
 ### Documentation:

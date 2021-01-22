@@ -2,12 +2,12 @@ package de.idealo.whitelabels.logback;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
-import ch.qos.logback.core.encoder.Encoder;
 import java.nio.charset.StandardCharsets;
+import net.logstash.logback.encoder.LogstashEncoder;
 
 public class HttpAppender extends AppenderBase<ILoggingEvent> {
 
-    private Encoder<ILoggingEvent> encoder;
+    private LogstashEncoder encoder;
     private HttpClient httpClient;
 
     @Override
@@ -17,6 +17,7 @@ public class HttpAppender extends AppenderBase<ILoggingEvent> {
         }
         verifyConfigurationParameters();
         addInfo("HttpAppender started");
+
         super.start();
     }
 
@@ -25,12 +26,11 @@ public class HttpAppender extends AppenderBase<ILoggingEvent> {
         if (!isStarted()) {
             return;
         }
-        byte[] bytes = encoder.encode(event);
-        String json = new String(bytes, StandardCharsets.UTF_8);
+        String json = new String(encoder.encode(event), StandardCharsets.UTF_8);
         httpClient.put(json);
     }
 
-    public void setEncoder(Encoder<ILoggingEvent> encoder) {
+    public void setEncoder(LogstashEncoder encoder) {
         this.encoder = encoder;
     }
 
