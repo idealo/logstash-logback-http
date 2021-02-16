@@ -10,7 +10,6 @@ import feign.Response;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.List;
-import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
 
 public class HttpClient extends ContextAwareBase implements LifeCycle {
 
@@ -23,7 +22,7 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
         if (isStarted) {
             return;
         }
-        if (StringUtils.isBlank(destination)) {
+        if (destination == null || destination.isEmpty()) {
             addError("No encoder was configured. Use <destination> URL");
         }
 

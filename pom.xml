@@ -6,7 +6,7 @@
 
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.19</version>
+  <version>1.0.20</version>
   <name>${project.artifactId}</name>
   <description>Logstash Logback HTTP/HTTPS Appender</description>
   <packaging>jar</packaging>
@@ -20,7 +20,7 @@
     <feign.version>11.0</feign.version>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-    <junit-jupiter.version>5.7.0</junit-jupiter.version>
+    <junit-jupiter.version>5.7.1</junit-jupiter.version>
 
     <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
     <logback.version>1.2.3</logback.version>
@@ -29,13 +29,13 @@
     <mockito.version>3.7.7</mockito.version>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <assertj.version>3.18.1</assertj.version>
+    <assertj.version>3.19.0</assertj.version>
 
     <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
     <logstash-logback-encoder.version>6.6</logstash-logback-encoder.version>
 
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/mockwebserver -->
-    <mockwebserver.version>4.9.0</mockwebserver.version>
+    <mockwebserver.version>4.9.1</mockwebserver.version>
   </properties>
 
   <dependencies>
