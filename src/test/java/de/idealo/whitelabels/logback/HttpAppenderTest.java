@@ -10,9 +10,8 @@ import static org.mockito.Mockito.when;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.LoggingEvent;
-import ch.qos.logback.core.encoder.Encoder;
+import net.logstash.logback.encoder.LogstashEncoder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,7 +24,7 @@ class HttpAppenderTest {
     private HttpAppender httpAppender;
 
     @Mock
-    private Encoder<ILoggingEvent> encoder;
+    private LogstashEncoder encoder;
 
     @Mock
     private HttpClient httpClient;

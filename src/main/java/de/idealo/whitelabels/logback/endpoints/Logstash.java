@@ -1,4 +1,4 @@
-package de.idealo.whitelabels.logback.library;
+package de.idealo.whitelabels.logback.endpoints;
 
 import feign.RequestLine;
 import feign.Response;
