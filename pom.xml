@@ -19,6 +19,18 @@
     </license>
   </licenses>
 
+  <developers>
+    <developer>
+      <id>tsyma</id>
+      <name>Oleh Tsymaienko</name>
+      <email>tsyma@lafox.net</email>
+      <url>https://github.com/tsyma</url>
+      <roles>
+        <role>Maintainer</role>
+      </roles>
+    </developer>
+  </developers>
+
   <scm>
     <connection>scm:git:https://github.com/idealo/logstash-logback-http.git</connection>
     <url>https://github.com/idealo/logstash-logback-http</url>
