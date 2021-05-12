@@ -13,7 +13,7 @@ pom.xml
 <dependency>
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.19</version>
+  <version>1.0.21</version>
 </dependency>
 ```
 
