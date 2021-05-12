@@ -8,6 +8,7 @@
   <artifactId>logstash-logback-http</artifactId>
   <version>1.0.21</version>
   <name>${project.artifactId}</name>
+  <url>https://github.com/idealo/logstash-logback-http</url>
   <description>Logstash Logback HTTP/HTTPS Appender</description>
   <packaging>jar</packaging>
 
@@ -18,6 +19,26 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
+  <developers>
+    <developer>
+      <id>tsyma</id>
+      <name>Oleh Tsymaienko</name>
+      <email>tsyma@lafox.net</email>
+      <url>https://github.com/tsyma</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>wassertim</id>
+      <name>Tim Tkachenko</name>
+      <url>https://github.com/wassertim</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
 
   <scm>
     <connection>scm:git:https://github.com/idealo/logstash-logback-http.git</connection>
@@ -71,6 +92,9 @@
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 
   </properties>
 
@@ -199,6 +223,27 @@
             <id>attach-javadocs</id>
             <goals>
               <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>${maven-gpg-plugin.version}</version>
+        <configuration>
+          <gpgArguments>
+            <arg>--pinentry-mode</arg>
+            <arg>loopback</arg>
+          </gpgArguments>
+        </configuration>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
             </goals>
           </execution>
         </executions>
