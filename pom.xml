@@ -6,10 +6,31 @@
 
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.20</version>
+  <version>1.0.21</version>
   <name>${project.artifactId}</name>
   <description>Logstash Logback HTTP/HTTPS Appender</description>
   <packaging>jar</packaging>
+
+  <licenses>
+    <license>
+      <name>Apache-2.0</name>
+      <url>https://opensource.org/licenses/Apache-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:https://github.com/idealo/logstash-logback-http.git</connection>
+    <url>https://github.com/idealo/logstash-logback-http</url>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +38,7 @@
     <maven.compiler.target>8</maven.compiler.target>
 
     <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
-    <feign.version>11.0</feign.version>
+    <feign.version>11.2</feign.version>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
     <junit-jupiter.version>5.7.1</junit-jupiter.version>
@@ -26,7 +47,7 @@
     <logback.version>1.2.3</logback.version>
 
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-    <mockito.version>3.7.7</mockito.version>
+    <mockito.version>3.9.0</mockito.version>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
     <assertj.version>3.19.0</assertj.version>
@@ -36,6 +57,21 @@
 
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/mockwebserver -->
     <mockwebserver.version>4.9.1</mockwebserver.version>
+
+    <!-- MAVEN PLUGINS -->
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+    <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+    <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
+    <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+
   </properties>
 
   <dependencies>
@@ -51,6 +87,7 @@
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
     </dependency>
+
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-core</artifactId>
@@ -62,6 +99,7 @@
       <artifactId>feign-core</artifactId>
       <version>${feign.version}</version>
     </dependency>
+
     <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-gson</artifactId>
@@ -74,12 +112,14 @@
       <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -93,6 +133,7 @@
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
@@ -121,7 +162,7 @@
 
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>${maven-compiler-plugin.version}</version>
       </plugin>
 
       <plugin>
@@ -136,8 +177,36 @@
       </plugin>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.22.2</version>
+        <version>${maven-failsafe-plugin.version}</version>
       </plugin>
 
     </plugins>
