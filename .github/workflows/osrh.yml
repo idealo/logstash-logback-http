@@ -8,11 +8,11 @@ jobs:
     steps:
 
       - name: Build with Maven
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         run: mvn package
 
       - name: Install gpg secret key
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         run: |
           cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
           gpg --list-secret-keys --keyid-format LONG
