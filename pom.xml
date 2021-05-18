@@ -6,7 +6,7 @@
 
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.21</version>
+  <version>1.0.22</version>
   <name>${project.artifactId}</name>
   <url>https://github.com/idealo/logstash-logback-http</url>
   <description>Logstash Logback HTTP/HTTPS Appender</description>
@@ -33,6 +33,7 @@
     <developer>
       <id>wassertim</id>
       <name>Tim Tkachenko</name>
+      <email>tim.tkachenko@idealo.de</email>
       <url>https://github.com/wassertim</url>
       <roles>
         <role>Developer</role>
@@ -62,13 +63,13 @@
     <feign.version>11.2</feign.version>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-    <junit-jupiter.version>5.7.1</junit-jupiter.version>
+    <junit-jupiter.version>5.7.2</junit-jupiter.version>
 
     <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
     <logback.version>1.2.3</logback.version>
 
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-    <mockito.version>3.9.0</mockito.version>
+    <mockito.version>3.10.0</mockito.version>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
     <assertj.version>3.19.0</assertj.version>
@@ -93,8 +94,14 @@
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
     <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+
+    <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
+    <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
 
   </properties>
 
@@ -190,8 +197,20 @@
       </plugin>
 
       <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>${nexus-staging-maven-plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+
+      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.2</version>
+        <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <includes>
             <include>**/*IT.java</include>
@@ -234,7 +253,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>${maven-gpg-plugin.version}</version>
+        <version>1.6</version>
         <configuration>
           <gpgArguments>
             <arg>--pinentry-mode</arg>
