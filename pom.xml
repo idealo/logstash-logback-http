@@ -6,7 +6,7 @@
 
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.23</version>
+  <version>1.0.24</version>
   <name>${project.artifactId}</name>
   <url>https://github.com/idealo/logstash-logback-http</url>
   <description>Logstash Logback HTTP/HTTPS Appender</description>
@@ -60,36 +60,36 @@
     <maven.compiler.target>8</maven.compiler.target>
 
     <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
-    <feign.version>11.2</feign.version>
+    <feign.version>11.8</feign.version>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-    <junit-jupiter.version>5.7.2</junit-jupiter.version>
+    <junit-jupiter.version>5.8.2</junit-jupiter.version>
 
     <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
-    <logback.version>1.2.3</logback.version>
+    <logback.version>1.2.11</logback.version>
 
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-    <mockito.version>3.10.0</mockito.version>
+    <mockito.version>4.5.0</mockito.version>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <assertj.version>3.19.0</assertj.version>
+    <assertj.version>3.22.0</assertj.version>
 
     <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
-    <logstash-logback-encoder.version>6.6</logstash-logback-encoder.version>
+    <logstash-logback-encoder.version>7.1.1</logstash-logback-encoder.version>
 
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/mockwebserver -->
-    <mockwebserver.version>4.9.1</mockwebserver.version>
+    <mockwebserver.version>4.9.3</mockwebserver.version>
 
     <!-- MAVEN PLUGINS -->
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
     <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-    <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
@@ -101,7 +101,7 @@
     <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
-    <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
+    <nexus-staging-maven-plugin.version>1.6.12</nexus-staging-maven-plugin.version>
 
   </properties>
 
