@@ -56,9 +56,9 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
             return;
         }
         try {
-            verifyResponse(logstash.put(json));
+            verifyResponse(logstash.post(json));
         } catch (Exception ex) {
-            addWarn(String.format("Can't execute PUT request. URL: '%s'", destination), ex);
+            addWarn(String.format("Can't execute POSTtry post request. URL: '%s'", destination), ex);
         }
     }
 
