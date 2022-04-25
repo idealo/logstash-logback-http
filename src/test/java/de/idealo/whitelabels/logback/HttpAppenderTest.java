@@ -56,7 +56,7 @@ class HttpAppenderTest {
 
         httpAppender.append(event);
 
-        verify(httpClient).put(event.getMessage());
+        verify(httpClient).request(event.getMessage());
     }
 
     @Test
@@ -65,7 +65,7 @@ class HttpAppenderTest {
 
         httpAppender.append(event);
 
-        verify(httpClient, times(0)).put(event.getMessage());
+        verify(httpClient, times(0)).request(event.getMessage());
     }
 
     private LoggingEvent createEvent(Level level, String message) {

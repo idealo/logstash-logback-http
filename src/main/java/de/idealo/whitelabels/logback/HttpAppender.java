@@ -27,7 +27,7 @@ public class HttpAppender extends AppenderBase<ILoggingEvent> {
             return;
         }
         String json = new String(encoder.encode(event), StandardCharsets.UTF_8);
-        httpClient.put(json);
+        httpClient.request(json);
     }
 
     public void setEncoder(LogstashEncoder encoder) {

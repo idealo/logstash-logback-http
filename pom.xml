@@ -6,7 +6,7 @@
 
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.25-test-3</version>
+  <version>1.1.0</version>
   <name>${project.artifactId}</name>
   <url>https://github.com/idealo/logstash-logback-http</url>
   <description>Logstash Logback HTTP/HTTPS Appender</description>

@@ -6,6 +6,6 @@ import feign.Response;
 public interface Logstash {
 
     @RequestLine("POST /")
-    Response put(String json);
+    Response request(String json);
 
 }
