@@ -1,4 +1,4 @@
-# whitelabels-logstash-logback
+~# whitelabels-logstash-logback
 
 logstash-logback-http provide *HttpAppender* to sending log messages from _logback_ to _logstash_ via *http* or *https*
 
@@ -13,7 +13,7 @@ pom.xml
 <dependency>
   <groupId>de.idealo.whitelabels</groupId>
   <artifactId>logstash-logback-http</artifactId>
-  <version>1.0.24</version>
+  <version>1.1.1</version>
 </dependency>
 ```
 
