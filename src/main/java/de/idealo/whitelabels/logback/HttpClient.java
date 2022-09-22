@@ -36,7 +36,7 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
             .target(Logstash.class, destination);
 
         isStarted = true;
-        addInfo(String.format("HttpClient started: '%s'", destination));
+        addInfo("HttpClient started: '" + destination + "'");
     }
 
     @Override
@@ -58,7 +58,7 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
         try {
             verifyResponse(logstash.request(json));
         } catch (Exception ex) {
-            addWarn(String.format("Can't execute POST request. URL: '%s'", destination), ex);
+            addWarn("Can't execute POST request. URL: '" + destination + "'", ex);
         }
     }
 
@@ -77,11 +77,10 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
 
     private void verifyResponse(Response response) throws IOException {
         if (response.status() != HttpURLConnection.HTTP_OK) {
-            String msg = String.format("ResponseCode: %s; Reason: %s; URL: %s",
-                response.status(),
-                response.reason(),
-                response.request().url()
-            );
+            String msg = "" +
+                    "ResponseCode: " + response.status() + "; " +
+                    "Reason: " + response.reason() + "; " +
+                    "URL: " + response.request().url();
             throw new IOException(msg);
         }
     }
