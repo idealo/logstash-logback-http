@@ -92,7 +92,7 @@
     <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
-    <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+    <maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
