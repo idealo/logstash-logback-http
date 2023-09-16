@@ -60,36 +60,36 @@
     <maven.compiler.target>8</maven.compiler.target>
 
     <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
-    <feign.version>11.9.1</feign.version>
+    <feign.version>11.10</feign.version>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-    <junit-jupiter.version>5.9.0</junit-jupiter.version>
+    <junit-jupiter.version>5.10.0</junit-jupiter.version>
 
     <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
-    <logback.version>1.3.1</logback.version>
+    <logback.version>1.4.11</logback.version>
 
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-    <mockito.version>4.8.0</mockito.version>
+    <mockito.version>4.11.0</mockito.version>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <assertj.version>3.23.1</assertj.version>
+    <assertj.version>3.24.2</assertj.version>
 
     <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
-    <logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
+    <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
 
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/mockwebserver -->
-    <mockwebserver.version>4.10.0</mockwebserver.version>
+    <mockwebserver.version>4.11.0</mockwebserver.version>
 
     <!-- MAVEN PLUGINS -->
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
-    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
-    <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+    <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-    <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
