@@ -21,7 +21,6 @@ jobs:
         run: |
           echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}"
           echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}" | gpg --batch --import
-#          cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
           gpg --list-secret-keys --keyid-format LONG
 
       - name: Publish
