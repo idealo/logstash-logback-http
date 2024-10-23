@@ -77,8 +77,7 @@ public class HttpClient extends ContextAwareBase implements LifeCycle {
 
     private void verifyResponse(Response response) throws IOException {
         if (response.status() != HttpURLConnection.HTTP_OK) {
-            String msg = "" +
-                    "ResponseCode: " + response.status() + "; " +
+            String msg = "ResponseCode: " + response.status() + "; " +
                     "Reason: " + response.reason() + "; " +
                     "URL: " + response.request().url();
             throw new IOException(msg);
