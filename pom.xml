@@ -98,7 +98,7 @@
     <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
-    <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 
     <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
     <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
